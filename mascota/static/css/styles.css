@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.nav-bar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #fff; /* Cambia el color según tu diseño */
+    font-weight: bold;
+}
+/* ...otros estilos... */
+
+.nav-bar {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    background: #333;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-bar > .nav-item > a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #444;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 100;
+    margin-top: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #555;
+}
+
+.nav-item:hover > .dropdown-menu {
+    display: block;
+}
