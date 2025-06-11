@@ -105,3 +105,19 @@ footer {
 .nav-item:hover > .dropdown-menu {
     display: block;
 }
+
+.carousel-custom {
+    max-width: 100%; /* Ajusta el ancho máximo del carrusel */
+    height: 50vh; /* Ocupa la mitad de la altura de la pantalla */
+    margin: auto; /* Centra el carrusel */
+    margin-top: 0; /* Asegura que esté justo debajo del header */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.carousel-custom img {
+    max-height: 100%; /* Limita la altura máxima de las imágenes al contenedor */
+    max-width: 100%; /* Limita el ancho máximo de las imágenes al contenedor */
+    object-fit: contain; /* Muestra la imagen completa dentro del carrusel */
+    display: block; /* Asegura que las imágenes no tengan espacios adicionales */
+    margin: auto; /* Centra las imágenes dentro del carrusel */
+}

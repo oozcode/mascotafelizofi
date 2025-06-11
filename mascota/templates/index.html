@@ -30,7 +30,7 @@
             </nav>
         </header>
         <main>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -38,13 +38,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{% static 'images/slide1.jpg' %}" class="d-block w-100" alt="...">
+                        <img src="{% static 'images/veterinaria.jpg' %}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'images/slide2.jpg' %}" class="d-block w-100" alt="...">
+                        <img src="{% static 'images/estetica.jpg' %}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{% static 'images/slide3.jpg' %}" class="d-block w-100" alt="...">
+                        <img src="{% static 'images/nosotros.jpg' %}" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -56,6 +56,52 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <div class="container welcome-section mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="{% static 'images/gifperro.gif' %}" alt="Cuidado de mascotas" class="img-fluid" style="max-width: 400px;">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Quienes somos</h2>
+                        <p>En Mascota Feliz, nos dedicamos a cuidar y consentir a tus mascotas. Ofrecemos servicios de veterinaria, estética y mucho más.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container services-section mt-5">
+                <h2>Servicios</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{% static 'images/veterinaria.jpg' %}" class="card-img-top" alt="Veterinaria">
+                            <div class="card-body">
+                                <h5 class="card-title">Veterinaria</h5>
+                                <p class="card-text">Atención veterinaria de calidad para mantener a tu mascota saludable.</p> 
+                                <a href="#" class="btn btn-primary">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{% static 'images/estetica.jpg' %}" class="card-img-top" alt="Estética">
+                            <div class="card-body">
+                                <h5 class="card-title">Estética</h5>
+                                <p class="card-text">Servicios de estética para que tu mascota luzca siempre hermosa.</p>
+                                <a href="#" class="btn btn-primary">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="{% static 'images/nosotros.jpg' %}" class="card-img-top" alt="Nosotros">
+                            <div class="card-body">
+                                <h5 class="card-title">Nosotros</h5>
+                                <p class="card-text">Conoce más sobre nuestro equipo y nuestra misión de cuidar a tus mascotas.</p>
+                                <a href="#" class="btn btn-primary">Más información</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             {% block content %}
             {% endblock %}
         </main>
