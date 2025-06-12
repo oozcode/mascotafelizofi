@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Móvil | Mascota Feliz</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <div class="container mt-5 mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'images/movil.jpg' %}" alt="Veterinaria Móvil" class="img-fluid rounded shadow" style="max-width: 400px;">
+                </div>
+                <div class="col-md-6">
+                    <h2>Veterinaria Móvil</h2>
+                    <p>
+                        Servicio a domicilio para consultas, vacunas y tratamientos.<br>
+                        <strong>Precio:</strong> $30.000 por visita
+                    </p>
+                    <h5 class="mt-4">Agenda tu hora</h5>
+                    <form>
+                        <div class="mb-2">
+                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" class="form-control" placeholder="Dirección" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="tel" class="form-control" placeholder="Teléfono" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="datetime-local" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Agendar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

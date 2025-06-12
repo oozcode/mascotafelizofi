@@ -1,123 +1,174 @@
+/* General */
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Segoe UI', Arial, sans-serif;
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
-header nav ul li {
-    margin-right: 20px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
 main {
-    padding: 20px;
+    flex: 1 0 auto;
+} 
+
+/* Header */
+.header-container {
+    background-color: #fff8f0;
+    border-bottom: 1px solid #ffe0b2;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-.nav-bar {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-
-.nav-item a {
-    text-decoration: none;
-    color: #fff; /* Cambia el color según tu diseño */
+header h1 {
+    color: #ff7f50;
     font-weight: bold;
+    margin-bottom: 0;
 }
-/* ...otros estilos... */
 
+/* Navbar */
 .nav-bar {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    background: #333;
+    background: transparent;
 }
 
-.nav-item {
-    position: relative;
+.nav-item > a,
+.nav-link {
+    color: #ff7f50 !important;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
-.nav-bar > .nav-item > a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
+.nav-item > a:hover,
+.nav-link:hover {
+    color: #ffb347 !important;
 }
 
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background: #444;
-    min-width: 180px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    z-index: 100;
-    margin-top: 0;
-    padding: 0;
+    background: #fff8f0;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.08);
 }
 
-.dropdown-menu li {
-    list-style: none;
+.dropdown-item {
+    color: #ff7f50;
+    transition: background 0.2s, color 0.2s;
 }
 
-.dropdown-menu .dropdown-item {
+.dropdown-item:hover {
+    background: #ffb347;
     color: #fff;
-    text-decoration: none;
-    display: block;
-    padding: 10px 15px;
 }
 
-.dropdown-menu .dropdown-item:hover {
-    background: #555;
-}
-
-.nav-item:hover > .dropdown-menu {
-    display: block;
-}
-
+/* Carrusel */
 .carousel-custom {
-    max-width: 100%; /* Ajusta el ancho máximo del carrusel */
-    height: 50vh; /* Ocupa la mitad de la altura de la pantalla */
-    margin: auto; /* Centra el carrusel */
-    margin-top: 0; /* Asegura que esté justo debajo del header */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    max-width: 100%;
+    height: 50vh;
+    margin: 30px auto 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(255, 183, 77, 0.15);
 }
 
 .carousel-custom img {
-    max-height: 100%; /* Limita la altura máxima de las imágenes al contenedor */
-    max-width: 100%; /* Limita el ancho máximo de las imágenes al contenedor */
-    object-fit: contain; /* Muestra la imagen completa dentro del carrusel */
-    display: block; /* Asegura que las imágenes no tengan espacios adicionales */
-    margin: auto; /* Centra las imágenes dentro del carrusel */
+    object-fit: cover;
+    height: 50vh;
+}
+
+/* Sección Bienvenida */
+.welcome-section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.08);
+    padding: 40px 20px;
+}
+
+/* Sección Servicios */
+.services-section {
+    background: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.08);
+    padding: 40px 20px;
+}
+
+/* Tarjetas de servicios y páginas individuales */
+.card, .service-detail {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.10);
+    background: #fff;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+}
+
+.card-title, .service-detail h2 {
+    color: #ff7f50;
+    font-weight: 700;
+}
+
+.card-text, .service-detail p {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.service-detail img {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.10);
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.service-detail .btn-primary {
+    margin-top: 20px;
+}
+
+/* Formularios */
+form {
+    background: #fff8f0;
+    border-radius: 12px;
+    padding: 24px 18px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.08);
+}
+
+form label {
+    color: #ff7f50;
+    font-weight: 600;
+}
+
+form .form-control:focus {
+    border-color: #ffb347;
+    box-shadow: 0 0 0 0.2rem rgba(255,183,71,.25);
+}
+
+.btn-primary {
+    background-color: #ffb347;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #ff7f50;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background-color: #fff8f0;
+    color: #ff7f50;
+    border-top: 1px solid #ffe0b2;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .service-detail, .card {
+        padding: 18px 8px;
+    }
+    .welcome-section, .services-section {
+        padding: 20px 5px;
+    }
 }

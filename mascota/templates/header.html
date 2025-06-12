@@ -1,3 +1,23 @@
-<html>
-    
-</html>
+<div class="header-container py-3">
+    <header class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <a href="{% url 'index' %}" class="text-decoration-none d-flex align-items-center">
+            <i class="bi bi-paw" style="font-size: 2rem; color: #ff7f50;"></i>
+            <span class="ms-2 h1 mb-0" style="color: #ff7f50;">Mascota Feliz</span>
+        </a>
+        <nav>
+            <ul class="nav-bar nav">
+                <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="{% url 'nosotros' %}" class="nav-link">Nosotros</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Servicios</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'veterinaria' %}">Veterinaria</a></li>
+                        <li><a class="dropdown-item" href="{% url 'estetica' %}">Estética</a></li>
+                        <li><a class="dropdown-item" href="{% url 'movil' %}">Veterinaria Móvil</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>

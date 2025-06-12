@@ -2,111 +2,103 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mi Aplicación de Mascotas</title>
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">      
-    </head>
-    <body>
-        <header>
-            <h1>Mascota Feliz</h1>
-            <nav>
-                <ul class="nav-bar">
-                    <li class="nav-item"><a href="#">Nosotros</a></li>
-                    <li class="nav-item"><a href="#">Servicios</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="#">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{% static 'images/veterinaria.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'images/estetica.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'images/nosotros.jpg' %}" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <div class="container welcome-section mt-5">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center">
-                        <img src="{% static 'images/gifperro.gif' %}" alt="Cuidado de mascotas" class="img-fluid" style="max-width: 400px;">
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Quienes somos</h2>
-                        <p>En Mascota Feliz, nos dedicamos a cuidar y consentir a tus mascotas. Ofrecemos servicios de veterinaria, estética y mucho más.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="container services-section mt-5">
-                <h2>Servicios</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{% static 'images/veterinaria.jpg' %}" class="card-img-top" alt="Veterinaria">
-                            <div class="card-body">
-                                <h5 class="card-title">Veterinaria</h5>
-                                <p class="card-text">Atención veterinaria de calidad para mantener a tu mascota saludable.</p> 
-                                <a href="#" class="btn btn-primary">Más información</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{% static 'images/estetica.jpg' %}" class="card-img-top" alt="Estética">
-                            <div class="card-body">
-                                <h5 class="card-title">Estética</h5>
-                                <p class="card-text">Servicios de estética para que tu mascota luzca siempre hermosa.</p>
-                                <a href="#" class="btn btn-primary">Más información</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{% static 'images/nosotros.jpg' %}" class="card-img-top" alt="Nosotros">
-                            <div class="card-body">
-                                <h5 class="card-title">Nosotros</h5>
-                                <p class="card-text">Conoce más sobre nuestro equipo y nuestra misión de cuidar a tus mascotas.</p>
-                                <a href="#" class="btn btn-primary">Más información</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota Feliz</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+  {% include 'header.html' %}
 
-            {% block content %}
-            {% endblock %}
-        </main>
-        <footer>
-            <p>&copy; 2023 Mi Aplicación de Mascotas</p>
-        </footer>
-    </body>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Carrusel -->
+        <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/veterinaria.jpg' %}" class="d-block w-100" alt="Veterinaria">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/estetica.jpg' %}" class="d-block w-100" alt="Estética">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/nosotros.jpg' %}" class="d-block w-100" alt="Nosotros">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+        <!-- Bienvenida -->
+        <div class="container welcome-section mt-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'images/gifperro.gif' %}" alt="Cuidado de mascotas" class="img-fluid" style="max-width: 400px;">
+                </div>
+                <div class="col-md-6">
+                    <h2>¿Quiénes somos?</h2>
+                    <p>En <strong>Mascota Feliz</strong> nos dedicamos a cuidar y consentir a tus mascotas. Ofrecemos servicios de veterinaria, estética y mucho más, siempre con amor y profesionalismo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Servicios -->
+        <div class="container services-section mt-5 mb-5">
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{% static 'images/veterinaria.jpg' %}" class="card-img-top" alt="Veterinaria">
+                        <div class="card-body">
+                            <h5 class="card-title">Veterinaria</h5>
+                            <p class="card-text">Atención veterinaria de calidad para mantener a tu mascota saludable.</p>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{% static 'images/estetica.jpg' %}" class="card-img-top" alt="Estética">
+                        <div class="card-body">
+                            <h5 class="card-title">Estética</h5>
+                            <p class="card-text">Servicios de estética para que tu mascota luzca siempre hermosa.</p>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{% static 'images/nosotros.jpg' %}" class="card-img-top" alt="Nosotros">
+                        <div class="card-body">
+                            <h5 class="card-title">Nosotros</h5>
+                            <p class="card-text">Conoce más sobre nuestro equipo y nuestra misión de cuidar a tus mascotas.</p>
+                            <a href="{% url 'nosotros' %}" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+</body>
 </html>
