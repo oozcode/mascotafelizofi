@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Mis Reservas</h2>
+    <ul class="list-group">
+        {% for reserva in reservas %}
+        <li class="list-group-item">
+            <strong>{{ reserva.mascota.nombre }}</strong> - {{ reserva.get_tipo_atencion_display }}<br>
+            Fecha: {{ reserva.fecha_hora }}<br>
+            {% if reserva.fichas.all %}
+                <a href="{% url 'ver_ficha' reserva.fichas.first.id %}">Ver Ficha Médica</a>
+            {% endif %}
+        </li>
+        {% empty %}
+        <li class="list-group-item">No tienes reservas.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

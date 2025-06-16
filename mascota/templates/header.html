@@ -1,11 +1,11 @@
+{% load static %}
 <div class="header-container py-3">
-    <header class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-        <a href="{% url 'index' %}" class="text-decoration-none d-flex align-items-center">
-            <i class="bi bi-paw" style="font-size: 2rem; color: #ff7f50;"></i>
-            <span class="ms-2 h1 mb-0" style="color: #ff7f50;">Mascota Feliz</span>
+    <header class="container-fluid d-flex flex-column flex-md-row align-items-center">
+        <a href="{% url 'index' %}" class="text-decoration-none d-flex align-items-center me-3">
+            <img src="{% static 'images/logo.png' %}" alt="Mascota Feliz Logo" style="height: 84px;">
         </a>
-        <nav>
-            <ul class="nav-bar nav">
+        <nav class="flex-grow-1">
+            <ul class="nav-bar nav align-items-center">
                 <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
                 <li class="nav-item"><a href="{% url 'nosotros' %}" class="nav-link">Nosotros</a></li>
                 <li class="nav-item dropdown">
@@ -17,7 +17,18 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link">Contacto</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'perfil_cliente' %}" class="nav-link">Mi Perfil</a></li>
+                    {% if user.is_veterinario %}
+                        <li class="nav-item"><a href="{% url 'dashboard_veterinario' %}" class="nav-link">Dashboard</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Salir</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Ingresar</a></li>
+                    <li class="nav-item"><a href="{% url 'registro' %}" class="nav-link">Registrarse</a></li>
+                {% endif %}
             </ul>
         </nav>
+        <a href="{% url 'agendar' %}" class="btn btn-primary btn-lg ms-3" style="white-space:nowrap;">Agendar Hora</a>
     </header>
 </div>

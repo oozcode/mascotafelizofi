@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Dashboard Veterinario</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Mascota</th>
+                <th>Tipo Atención</th>
+                <th>Fecha y Hora</th>
+                <th>Dirección</th>
+                <th>Ficha Médica</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.cliente.username }}</td>
+                <td>{{ reserva.mascota.nombre }}</td>
+                <td>{{ reserva.get_tipo_atencion_display }}</td>
+                <td>{{ reserva.fecha_hora }}</td>
+                <td>
+                    {% if reserva.tipo_atencion == 'movil' and reserva.direccion %}
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ reserva.direccion|urlencode }}" target="_blank" class="btn btn-success btn-sm">Ver en Google Maps</a>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'crear_ficha' reserva.id %}" class="btn btn-primary btn-sm">Crear Ficha</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

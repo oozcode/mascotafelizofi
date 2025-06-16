@@ -109,8 +109,10 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
+LOGIN_REDIRECT_URL = '/'
 
 USE_TZ = True
+AUTH_USER_MODEL = 'mascota.Usuario'
 
 
 # Static files (CSS, JavaScript, Images)
