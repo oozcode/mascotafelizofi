@@ -22,4 +22,6 @@ urlpatterns = [
       authentication_form=LoginForm
     ), name='login'),
     path('ficha/crear/<int:reserva_id>/', views.crear_ficha, name='crear_ficha'),
+    path('ficha/ver/<int:ficha_id>/', views.ver_ficha, name='ver_ficha'),
+    path('reserva/aceptar/<int:reserva_id>/', views.aceptar_reserva, name='aceptar_reserva'),
 ]

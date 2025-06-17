@@ -97,6 +97,22 @@ def crear_ficha(request, reserva_id):
         )
         return redirect('dashboard_veterinario')
     return render(request, 'crear_ficha.html', {'reserva': reserva})
+
+@login_required
+@user_passes_test(lambda u: u.is_veterinario)
+def aceptar_reserva(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+    if request.method == 'POST':
+        reserva.estado = 'aceptado'
+        reserva.save()
+    return redirect('dashboard_veterinario')
+
+@login_required
+@user_passes_test(lambda u: u.is_veterinario)
+def ver_ficha(request, ficha_id):
+    ficha = get_object_or_404(FichaMedica, id=ficha_id)
+    return render(request, 'ver_ficha.html', {'ficha': ficha})
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
