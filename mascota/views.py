@@ -4,7 +4,12 @@ from .models import Reserva, FichaMedica,Mascota,Animal
 from .forms import RegistroForm  
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm,AgendarForm
-
+import qrcode
+from io import BytesIO
+from django.http import HttpResponse
+from django.urls import reverse
+from .models import FichaMedica
+from .forms import FichaMedicaForm
 
 def index(request):
     return render(request, 'index.html')
@@ -123,5 +128,58 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+import qrcode
+from io import BytesIO
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import render
+
+def es_veterinario(user):
+    return user.is_authenticated and user.is_veterinario
+
+@login_required
+@user_passes_test(es_veterinario)
+def qr_veterinario_page(request):
+    qr_data = ''
+    qr_url = ''
+    if request.method == 'POST':
+        texto = request.POST.get('texto', '')
+        if texto.lower() == 'steve':
+            # Ajusta el ID de la ficha de Steve según tu base de datos
+            qr_url = request.build_absolute_uri(reverse('ver_ficha', args=[1]))  # Suponiendo que la ficha de Steve es ID 1
+        else:
+            qr_url = texto
+        qr_data = qr_url
+    return render(request, 'qr_veterinario.html', {'qr_data': qr_data})
+
+@login_required
+@user_passes_test(es_veterinario)
+def qr_veterinario(request):
+    data = request.GET.get('data', '')
+    if not data:
+        return HttpResponse(status=400)
+    qr = qrcode.make(data)
+    buffer = BytesIO()
+    qr.save(buffer, format='PNG')
+    buffer.seek(0)
+    return HttpResponse(buffer.getvalue(), content_type='image/png')
+
+@login_required
+def editar_ficha(request, ficha_id):
+    ficha = get_object_or_404(FichaMedica, id=ficha_id)
+    
+@login_required
+def editar_ficha(request, ficha_id):
+    ficha = get_object_or_404(FichaMedica, id=ficha_id)
+    if request.method == 'POST':
+        form = FichaMedicaForm(request.POST, instance=ficha)
+        if form.is_valid():
+            form.save()
+            return redirect('ver_ficha', ficha_id=ficha.id)
+    else:
+        form = FichaMedicaForm(instance=ficha)
+    return render(request, 'editar_ficha.html', {'form': form, 'ficha': ficha})
+
 
 

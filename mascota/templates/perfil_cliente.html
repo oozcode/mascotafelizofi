@@ -11,20 +11,31 @@
 </head>
 <body>
     {% include "header.html" %}
-    <div class="perfil-container">
-        <div class="perfil-header">
+    <div class="perfil-container container py-4">
+        <div class="perfil-header mb-4">
             <h1>Perfil de {{ request.user.get_full_name|default:request.user.username }}</h1>
         </div>
-        <div class="perfil-info">
-            <p>Email: {{ request.user.email }}</p>
+        <div class="perfil-info mb-4">
+            <p><strong>Email:</strong> {{ request.user.email }}</p>
         </div>
         <div class="perfil-reservas">
             <h2>Reservas</h2>
-            <ul>
+            <ul class="list-group">
                 {% for reserva in reservas %}
-                    <li>{{ reserva }}</li>
+                    <li class="list-group-item mb-2">
+                        <strong>Mascota:</strong> {{ reserva.mascota.nombre }}<br>
+                        <strong>Tipo de atención:</strong> {{ reserva.get_tipo_atencion_display }}<br>
+                        <strong>Fecha y hora:</strong> {{ reserva.fecha_hora|date:"d/m/Y H:i" }}<br>
+                        <strong>Estado:</strong> {{ reserva.estado|capfirst }}
+                        {% if reserva.tipo_atencion == 'movil' and reserva.direccion %}
+                            <br>
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ reserva.direccion|urlencode }}" target="_blank" class="btn btn-success btn-sm mt-1">
+                                Ver dirección
+                            </a>
+                        {% endif %}
+                    </li>
                 {% empty %}
-                    <li>No tienes reservas.</li>
+                    <li class="list-group-item">No tienes reservas.</li>
                 {% endfor %}
             </ul>
         </div>

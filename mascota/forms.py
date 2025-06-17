@@ -23,10 +23,10 @@ class RegistroForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
-        label="Usuario",
+        label="Correo",
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Nombre de usuario',
+            'placeholder': 'Correo electrónico',
             'autofocus': True
         })
     )
@@ -51,3 +51,13 @@ class AgendarForm(forms.Form):
     )
     direccion = forms.CharField(label="Dirección", max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'direccion'}))
     fecha_hora = forms.DateTimeField(label="Fecha y hora", widget=forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}))
+
+class FichaMedicaForm(forms.ModelForm):
+    class Meta:
+        model = FichaMedica
+        fields = ['procedimiento', 'tratamiento', 'observaciones']
+        widgets = {
+            'procedimiento': forms.Textarea(attrs={'class': 'form-control'}),
+            'tratamiento': forms.TextInput(attrs={'class': 'form-control'}),
+            'observaciones': forms.Textarea(attrs={'class': 'form-control'}),
+        }
