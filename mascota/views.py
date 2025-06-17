@@ -27,7 +27,7 @@ def estetica(request):
 def movil(request):
     return render(request, 'movil.html')
 
-@login_required
+@login_required(login_url='/login/')
 def agendar(request):
     if request.method == 'POST':
         form = AgendarForm(request.POST)
@@ -123,3 +123,5 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+

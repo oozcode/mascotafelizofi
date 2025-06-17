@@ -295,3 +295,38 @@ footer {
         max-width: 90vw;
     }
 }
+
+/* ...existing code... */
+footer {
+    background-color: #fff8f0;
+    color: #333;
+    border-top: 2px solid #ffb347;
+    padding: 32px 0 16px 0;
+    text-align: center;
+    font-size: 1.08em;
+}
+
+footer h5, footer h6, footer strong {
+    color: #ff7f50;
+}
+
+footer a {
+    color: #ff7f50;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffb347;
+    text-decoration: underline;
+}
+
+footer .fab, footer .fas {
+    color: #ff7f50;
+    transition: color 0.2s;
+}
+
+footer .fab:hover, footer .fas:hover {
+    color: #ffb347;
+}
+/* ...existing code... */

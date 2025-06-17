@@ -23,7 +23,10 @@
                     {% if user.is_veterinario %}
                         <li class="nav-item"><a href="{% url 'dashboard_veterinario' %}" class="nav-link">Horas Agendadas</a></li>
                     {% endif %}
-                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Salir</a></li>
+                    <li class="nav-item"><form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                        {% csrf_token %}
+                    </form>
+                    <a href="#" onclick="document.getElementById('logout-form').submit(); return false;">Cerra sesion</a></li>
                 {% else %}
                     <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Ingresar</a></li>
                     <li class="nav-item"><a href="{% url 'registro' %}" class="nav-link">Registrarse</a></li>
