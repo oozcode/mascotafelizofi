@@ -1,0 +1,51 @@
+.perfil-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.perfil-header {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+}
+
+.perfil-header h1 {
+    font-size: 2rem;
+    color: #2d6a4f;
+    margin: 0;
+}
+
+.perfil-info {
+    margin-bottom: 24px;
+}
+
+.perfil-info p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 8px 0;
+}
+
+.perfil-reservas h2 {
+    color: #40916c;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.perfil-reservas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.perfil-reservas li {
+    background: #f1faee;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    padding: 10px 16px;
+    color: #22223b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}

@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class Usuario(AbstractUser):
-    # Puedes agregar más campos si lo necesitas
     is_cliente = models.BooleanField(default=True)
     is_veterinario = models.BooleanField(default=False)
 
@@ -17,7 +16,7 @@ class Reserva(models.Model):
     mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE)
     tipo_atencion = models.CharField(max_length=30, choices=[('veterinaria','Veterinaria'),('estetica','Estética'),('movil','Veterinaria Móvil')])
     fecha_hora = models.DateTimeField()
-    direccion = models.CharField(max_length=255, blank=True, null=True)  # Solo para movil
+    direccion = models.CharField(max_length=255, blank=True, null=True)
     enlace_maps = models.URLField(blank=True, null=True)
     estado = models.CharField(max_length=20, default='pendiente')
 
@@ -29,3 +28,6 @@ class FichaMedica(models.Model):
     procedimiento = models.TextField()
     tratamiento = models.CharField(max_length=100)
     observaciones = models.TextField(blank=True)
+
+class Animal(models.Model):
+    especie = models.CharField(max_length=50)

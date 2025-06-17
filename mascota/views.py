@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Reserva, FichaMedica
+from .models import Reserva, FichaMedica,Mascota,Animal
+from .forms import RegistroForm  
+from django.contrib.auth import authenticate, login
+from .forms import LoginForm,AgendarForm
+
 
 def index(request):
     return render(request, 'index.html')
@@ -24,19 +27,42 @@ def estetica(request):
 def movil(request):
     return render(request, 'movil.html')
 
+@login_required
 def agendar(request):
-    return render(request, 'agendar.html')
+    if request.method == 'POST':
+        form = AgendarForm(request.POST)
+        if form.is_valid():
+            # Crear o buscar la mascota
+            mascota, _ = Mascota.objects.get_or_create(
+                nombre=form.cleaned_data['nombre_mascota'],
+                tipo=form.cleaned_data['tipo'],
+                edad=form.cleaned_data['edad'],
+                dueño=request.user
+            )
+            # Crear la reserva
+            Reserva.objects.create(
+                cliente=request.user,
+                mascota=mascota,
+                tipo_atencion=form.cleaned_data['tipo_atencion'],
+                fecha_hora=form.cleaned_data['fecha_hora'],
+                direccion=form.cleaned_data['direccion'] if form.cleaned_data['tipo_atencion'] == 'movil' else '',
+            )
+            return redirect('perfil_cliente')
+    else:
+        form = AgendarForm()
+    return render(request, 'agendar.html', {'form': form})
 
 def registro(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistroForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            user.is_cliente = True  # Si usas tu modelo personalizado
+            user = form.save(commit=False)
+            user.username = form.cleaned_data['email']  # Opcional: usa email como username
+            user.is_cliente = True
             user.save()
             return redirect('login')
     else:
-        form = UserCreationForm()
+        form = RegistroForm()
     return render(request, 'registro.html', {'form': form})
 
 @login_required
@@ -71,18 +97,13 @@ def crear_ficha(request, reserva_id):
         )
         return redirect('dashboard_veterinario')
     return render(request, 'crear_ficha.html', {'reserva': reserva})
-
-from .forms import RegistroForm, LoginForm
-
-def registro(request):
+def login_view(request):
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = LoginForm(request, data=request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.username = form.cleaned_data['email']  # Usa el correo como username
-            user.is_cliente = True
-            user.save()
-            return redirect('login')
+            user = form.get_user()
+            login(request, user)
+            return redirect('index')  # Cambia 'index' por la ruta que prefieras
     else:
-        form = RegistroForm()
-    return render(request, 'registro.html', {'form': form})
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})

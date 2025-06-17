@@ -20,7 +20,7 @@
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a href="{% url 'perfil_cliente' %}" class="nav-link">Mi Perfil</a></li>
                     {% if user.is_veterinario %}
-                        <li class="nav-item"><a href="{% url 'dashboard_veterinario' %}" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="{% url 'dashboard_veterinario' %}" class="nav-link">Horas Agendadas</a></li>
                     {% endif %}
                     <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Salir</a></li>
                 {% else %}

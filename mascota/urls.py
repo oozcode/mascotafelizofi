@@ -21,4 +21,5 @@ urlpatterns = [
       template_name='login.html',
       authentication_form=LoginForm
     ), name='login'),
+    path('ficha/crear/<int:reserva_id>/', views.crear_ficha, name='crear_ficha'),
 ]
