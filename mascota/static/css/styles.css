@@ -176,3 +176,122 @@ footer {
 .header-container .container {
     padding-left: 0;
 }
+
+.contact-info-section {
+    background: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 183, 77, 0.08);
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    color: #333;
+    max-width: 400px;
+}
+
+.contact-info-section h3 {
+    color: #ff7f50;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.contact-info-section p,
+.contact-info-section a {
+    font-size: 1.08em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.contact-info-section strong {
+    color: #ff7f50;
+}
+
+.contact-info-section a {
+    color: #ff7f50;
+    text-decoration: none;
+    margin-right: 12px;
+    transition: color 0.2s;
+}
+
+.contact-info-section a:hover {
+    color: #ffb347;
+    text-decoration: underline;
+}
+
+.about-section {
+    padding: 60px 0 40px 0;
+    background: #fff;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto 32px auto;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(255, 183, 77, 0.10);
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+}
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-content h2 {
+    color: #ff7f50;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.about-content p {
+    font-size: 1.13em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-content ul {
+    margin-top: 12px;
+    padding-left: 22px;
+    color: #333;
+}
+
+.about-content li {
+    margin-bottom: 7px;
+    font-size: 1.08em;
+}
+
+.about-extra {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-extra h3 {
+    color: #ff7f50;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.about-extra p {
+    color: #333;
+    font-size: 1.12em;
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 28px;
+    }
+    .about-image img {
+        max-width: 90vw;
+    }
+}
